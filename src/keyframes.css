@@ -1,0 +1,108 @@
+@keyframes scaleObjectDown {
+    0%{
+        transform: scale(1.6);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes scaleObjectUp {
+    0%{
+        transform: scale(0.5);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes animateBtn {
+    0%{
+        transform: translateX(-100%);
+    }
+    50%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes translateRight{
+    0%{
+        opacity: 0.5;
+        transform: translateX(-100%);
+    }
+
+    50%{
+        opacity: 0.7;
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes translateLeft{
+    0%{
+        opacity: 0.5;
+        transform: translateX(100%);
+    }
+
+    50%{
+        opacity: 0.7;
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes translateUp{
+    0%{
+        opacity: 0.5;
+        transform: translateY(100%);
+    }
+
+    50%{
+        opacity: 0.7;
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0.2;
+    }
+
+    50%{
+        opacity: 0.6;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+
+@keyframes fadeIn2{
+    0%{
+        opacity: 0;
+    }
+
+    50%{
+        opacity: 0.1;
+    }
+
+    100%{
+        opacity: 0.22;
+    }
+}
