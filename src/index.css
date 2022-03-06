@@ -2,12 +2,46 @@
 
 :root{
     --main-color: #041c2c;
+    --main-color2: #04243a;
     --yellow: #FAA916;
 }
+
+::-webkit-scrollbar{
+    width: 0.4rem;
+}
+::-webkit-scrollbar-thumb{
+    background: #001322;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: #032c47;
+}
+
+
 
 body{
     font-family: "Poppins",Arial, Helvetica, sans-serif;
     position: relative;
+    margin: 0;
+}
+
+.header{
+    background-color: #fdfdfd;
+    margin: 0;
+    z-index: 50;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.text-dark_{
+    color: var(--main-color);
+}
+
+.box-shadow{
+    box-shadow: 4px 5px 15px rgba(0, 0, 0, 0.486);
 }
 
 .loader-screen{
@@ -34,11 +68,13 @@ img{
 
 .btn-custom-1{
     padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
     background-color: #DB162F;
     border-radius: 30px;
     position: relative;
     color: #fff;
     text-decoration: none;
+    z-index: 2;
 }
 
 .btn-custom-1::before{
@@ -211,11 +247,16 @@ img{
     color: var(--main-color);
 }
 
-.top-rated{
+.top-rated, .upcoming, .now-showing{
     background-color: var(--main-color);
     color: #fff;
 }
-
+.now-showing{
+    background-color: var(--main-color2);
+}
+.now-showing .movie-card{
+    box-shadow: -5px -5px 5px #012c49, 5px 5px 5px #01192c;
+}
 .movie-card{
     /* box-shadow: 2px 8px 15px #011320; */
     box-shadow: -5px -5px 5px #01243b, 5px 5px 5px #001322;
@@ -263,4 +304,41 @@ img{
 .translate-right{
     animation-name: translateRight;
     animation-duration: .4s;
+}
+
+.owl-nav{
+    position: absolute;
+    top: -5.5rem;
+    right: 0px;
+    border: 2px solid rgba(170, 172, 175, 0.3);
+    padding: 0.1rem 1rem;
+    border-radius: 30px;
+}
+
+.owl-prev span{
+    display: inline-block;
+    padding-right: 0.5rem;
+    border-right: 2px solid rgba(170, 172, 175, 0.3);
+}
+
+
+.owl-theme .owl-nav [class*='owl-']:hover{
+    background: none;
+    color: var(--yellow);
+    transition: .2s ease-in-out;
+}
+
+.owl-stage{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    box-sizing: border-box;
+}
+
+@media (max-width: 700px) {
+    .owl-nav{
+        top: -5rem;
+    }
+    .h2{
+        font-size: 1.2rem;
+    }
 }

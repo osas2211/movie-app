@@ -3,6 +3,8 @@ import { ScreenLoader } from "./components/screenLoader";
 
 import { HomeHero } from './components/homeHero';
 import { TopRated } from './components/topRated';
+import { Upcoming } from "./components/upcoming";
+import { NowShowing } from "./components/nowShowing";
 
 function App() {
   const [loader, setLoader] = useState(false);
@@ -18,6 +20,8 @@ function App() {
         <>
           <HomeHero></HomeHero>
           <TopRated></TopRated>
+          <NowShowing></NowShowing>
+          <Upcoming></Upcoming>
         </>
       }
     </div>

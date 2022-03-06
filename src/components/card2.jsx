@@ -1,8 +1,7 @@
-
 export const Card = ({img, title, year, rating, time, animeClass})=> {
 
     return (
-        <div className="col-12 col-md-6 col-lg-3 border-2">
+        <div className="">
             <div className={"movie-card " + animeClass}>
                 <div className="movie-poster">
                     <img src={img} alt="" />

@@ -39,7 +39,7 @@ export const TopRated = ()=>{
             </div>
 
             {showMovies ? 
-                <div className="container-fluid mt-5">
+                <div className="container-fluid mt-5 pb-5">
                     <div className="row justify-content-center g-5">
                         <Card img={batman} animeClass="translate-right" title={"Batman"} year={"2022"} rating={7.4} time={"128 min"} />
                         <Card img={spiderman} animeClass="translate-right" title={"SpiderMan-No Way Home"} year={"2021"} rating={7.4} time={"128 min"} />

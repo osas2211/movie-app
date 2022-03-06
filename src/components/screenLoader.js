@@ -9,7 +9,7 @@ export const ScreenLoader = ({loader})=>{
     `;
     return (
         <div className="loader-screen">
-            <BounceLoader loading={loader} color="#DB162F" css={override}/>
+            <BounceLoader loading={loader} speedMultiplier={2} size={100} color="#DB162F" css={override}/>
         </div>
     )
 }

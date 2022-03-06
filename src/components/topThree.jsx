@@ -16,9 +16,9 @@ export const TopThree = ()=>{
                         <img src={spiderman} alt="" srcset="" />
                         <p>SpiderMan-No Way Home</p>
                         <div className="favourite-rating mb-2">
-                                <div className="d-inline-block me-2"><i class="far fa-star"></i> <span>7.4</span></div>
-                                <div className="d-inline-block mx-2"><i class="fas fa-stopwatch"></i> <span>1H 58MINS</span></div>
-                                <div className="d-inline-block mx-2"><i class="far fa-calendar-alt"></i> <span>2019</span></div>
+                                <div className="d-inline-block me-2"><i className="far fa-star"></i> <span>7.4</span></div>
+                                <div className="d-inline-block mx-2"><i className="fas fa-stopwatch"></i> <span>1H 58MINS</span></div>
+                                <div className="d-inline-block mx-2"><i className="far fa-calendar-alt"></i> <span>2019</span></div>
                             </div>
                         <a href="#" className="btn-custom-3 mt-2">View Details</a>    
                     </div>
@@ -32,9 +32,9 @@ export const TopThree = ()=>{
                         <img src={shiangchi} alt="" srcset="" />
                         <p> Shiang Chi-Legend of the Ten Rings</p>
                         <div className="favourite-rating mb-2">
-                                <div className="d-inline-block me-2"><i class="far fa-star"></i> <span>7.4</span></div>
-                                <div className="d-inline-block mx-2"><i class="fas fa-stopwatch"></i> <span>1H 58MINS</span></div>
-                                <div className="d-inline-block mx-2"><i class="far fa-calendar-alt"></i> <span>2019</span></div>
+                                <div className="d-inline-block me-2"><i className="far fa-star"></i> <span>7.4</span></div>
+                                <div className="d-inline-block mx-2"><i className="fas fa-stopwatch"></i> <span>1H 58MINS</span></div>
+                                <div className="d-inline-block mx-2"><i className="far fa-calendar-alt"></i> <span>2019</span></div>
                             </div>
                         <a href="#" className="btn-custom-3 mt-2">View Details</a>                       
                     </div>
