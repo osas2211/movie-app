@@ -26,23 +26,83 @@ body{
     margin: 0;
 }
 
+img{
+    width: 100%;
+    height: 100%;
+}
+
 .header{
-    background-color: #fdfdfd;
     margin: 0;
     z-index: 50;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    transition: .3s ease-in-out;
 }
 
-.text-dark_{
-    color: var(--main-color);
-}
-
-.box-shadow{
+.header-change{
+    background: linear-gradient(to right, #011624, #013d66);
     box-shadow: 4px 5px 15px rgba(0, 0, 0, 0.486);
+    animation: fadeIn;
+    animation-duration: 250ms;
 }
+
+header .nav{
+    padding: 0;
+    list-style: none;
+    display: flex;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    justify-content: space-between;
+    align-items: center;
+    align-self: center;
+}
+
+header .nav a{
+    color: #fff;
+    text-decoration: none;
+    margin-left: 1rem;
+    transition: .5s ease-in-out;
+}
+
+header .nav a:hover{
+    color: var(--yellow);
+}
+
+.mobile-nav{
+    position: fixed;
+    top: 4rem;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: #fff;
+    width: 100%;
+    height: 80vh;
+    text-align: center;
+    z-index: 50;
+    animation: translateLeft2 1s;
+}
+
+.mobile-nav a:not(.btn-custom-1){
+    text-decoration: none;
+    color: var(--main-color);
+    padding: 1rem;
+    text-transform: uppercase;
+}
+
+.mobile-nav a:not(.btn-custom-1):hover{
+    background-color: var(--yellow);
+}
+
+
+
+#ham{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
 
 .loader-screen{
     display: flex;
@@ -61,10 +121,16 @@ body{
     animation-duration: 1s;
 }
 
-img{
-    width: 100%;
-    height: 100%;
+.logo a{
+    color: #fff;
+    text-decoration: none;
 }
+
+.logo span{
+    color: var(--yellow);
+}
+
+
 
 .btn-custom-1{
     padding: 0.7rem 1.5rem;
@@ -334,11 +400,39 @@ img{
     box-sizing: border-box;
 }
 
+footer{
+    background-color: var(--main-color2);
+    padding: 4rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+
+footer a{
+    color: #fff;
+}
+
+footer a:hover{
+    color: var(--yellow);
+}
+
+footer .api-vendor a{
+    color: var(--yellow);
+}
+
 @media (max-width: 700px) {
     .owl-nav{
         top: -5rem;
     }
     .h2{
         font-size: 1.2rem;
+    }
+    header .nav{
+        display: none;
+    }
+
+    footer{
+        flex-direction: column;
     }
 }

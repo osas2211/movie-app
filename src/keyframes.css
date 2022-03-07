@@ -62,6 +62,17 @@
     }
 }
 
+@keyframes translateLeft2{
+    0%{
+        transform: translateX(100%);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
 @keyframes translateUp{
     0%{
         opacity: 0.5;
@@ -105,4 +116,38 @@
     100%{
         opacity: 0.22;
     }
+}
+
+@keyframes rotate{
+    0%{
+        transform: rotate(180deg);
+    }
+
+
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate2{
+    0%{
+        transform: rotate(180deg);
+    }
+
+
+    50%{
+        transform: rotate(360deg);
+    }
+
+    100%{
+        transform: scale(1.2);
+    }
+}
+
+.rotate2{
+    animation: rotate2 .5s;
+}
+
+.rotate{
+    animation: rotate .5s;
 }

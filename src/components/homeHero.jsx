@@ -6,7 +6,7 @@ import { TopThree } from "./topThree";
 export const HomeHero = ()=>{
     return <>
         <StyledHomeHero>
-            <img src={wallpaper} alt="" srcset="" />
+            <img src={wallpaper} alt="" className="hero-img" srcset="" />
                 <div className="hero-details">
                     <Header></Header>
                 </div>

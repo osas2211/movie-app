@@ -30,7 +30,7 @@ export const TopRated = ()=>{
         }
     }
     return (
-        <div className="top-rated py-5 px-3">
+        <div className="top-rated py-5 px-3" id="top-rated">
             <h3 className="display-6 text-capitalise text-center fw-bold mt-5">Top Rated Movies</h3>
             <div className="top-rated-nav text-center my-5">
                 <a href="" className={showMovies ? "btn-custom-4 ms-3 active-4" : "btn-custom-4 ms-3"} onClick={displayMovies}><span>Movies</span></a>

@@ -11,7 +11,7 @@ export const StyledHomeHero = styled.div`
         z-index: 8;
     }
       
-    img{
+    .hero-img{
         position: absolute;
         z-index: -3;
         width: 100%;
@@ -32,7 +32,7 @@ export const StyledHomeHero = styled.div`
     }
 
     .favourite-movie{
-        margin-top: 6rem;
+        margin-top: 12rem;
 
         small{
             opacity: 0.6;
@@ -68,7 +68,7 @@ export const StyledHomeHero = styled.div`
     @media (max-width: 700px) {
         height: 80vh;
         .favourite-movie{
-            margin-top: 8rem;
+            margin-top: 14rem;
             .favourite-description{
                 width: 100%;
                 display: none;

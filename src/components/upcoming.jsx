@@ -15,7 +15,7 @@ export const Upcoming = ()=>{
     `;
 
     return (
-        <div className="upcoming pb-5 px-3">
+        <div className="upcoming pb-5 px-3 pt-5" id="upcoming">
             <div className="py-3 px-3">
                 <h3 className="h2 text-capitalise mt-5">Upcoming Movies </h3>
             </div>

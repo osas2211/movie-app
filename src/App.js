@@ -5,6 +5,7 @@ import { HomeHero } from './components/homeHero';
 import { TopRated } from './components/topRated';
 import { Upcoming } from "./components/upcoming";
 import { NowShowing } from "./components/nowShowing";
+import { Footer } from "./components/footer";
 
 function App() {
   const [loader, setLoader] = useState(false);
@@ -22,6 +23,7 @@ function App() {
           <TopRated></TopRated>
           <NowShowing></NowShowing>
           <Upcoming></Upcoming>
+          <Footer></Footer>
         </>
       }
     </div>

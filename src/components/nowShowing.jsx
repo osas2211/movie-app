@@ -15,7 +15,7 @@ export const NowShowing = ()=>{
     `;
 
     return (
-        <div className="now-showing pb-5 px-3">
+        <div className="now-showing pb-5 px-3 pt-5" id="nowshowing">
             <div className="py-3 px-3">
                 <h3 className="h2 text-capitalise mt-5">Now Showing<PuffLoader css={override} size={25} color="#ff0022"/> </h3>
             </div>
