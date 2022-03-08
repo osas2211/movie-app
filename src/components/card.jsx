@@ -13,7 +13,7 @@ export const Card = ({img, title, year, rating, time, animeClass})=> {
                         <p className="movie-year">{year}</p>
                     </div>
                     <div className="d-flex justify-content-between align-items-center">
-                        <a href="#" className="btn-custom-5">View Details</a>
+                        <a href="/movie-details" className="btn-custom-5">View Details</a>
 
                         <div className="rating">
                             <div className="d-inline-block me-2"><i className="far fa-star"></i> <span>{rating}</span></div>

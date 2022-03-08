@@ -25,7 +25,7 @@ export const HomeHero = ()=>{
                                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore, distinctio deleniti? Minus, incidunt. Ratione, maxime odit. Quod enim minima quibusdam aliquam, incidunt repudiandae eos fugiat, architecto perspiciatis accusamus quis inventore!
                             </p>
                         </div>
-                        <a href="#" className="btn-custom-2 text-uppercase">View details</a>
+                        <a href="/movie-details" className="btn-custom-2 text-uppercase">View details</a>
                     </div>
 
                     <TopThree></TopThree>

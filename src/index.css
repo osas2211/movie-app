@@ -328,6 +328,8 @@ header .nav a:hover{
     box-shadow: -5px -5px 5px #01243b, 5px 5px 5px #001322;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .movie-poster{

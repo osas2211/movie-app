@@ -20,7 +20,7 @@ export const TopThree = ()=>{
                                 <div className="d-inline-block mx-2"><i className="fas fa-stopwatch"></i> <span>1H 58MINS</span></div>
                                 <div className="d-inline-block mx-2"><i className="far fa-calendar-alt"></i> <span>2019</span></div>
                             </div>
-                        <a href="#" className="btn-custom-3 mt-2">View Details</a>    
+                        <a href="/movie-details" className="btn-custom-3 mt-2">View Details</a>    
                     </div>
                 </div>
 
@@ -36,7 +36,7 @@ export const TopThree = ()=>{
                                 <div className="d-inline-block mx-2"><i className="fas fa-stopwatch"></i> <span>1H 58MINS</span></div>
                                 <div className="d-inline-block mx-2"><i className="far fa-calendar-alt"></i> <span>2019</span></div>
                             </div>
-                        <a href="#" className="btn-custom-3 mt-2">View Details</a>                       
+                        <a href="/movie-details" className="btn-custom-3 mt-2">View Details</a>                       
                     </div>
                 </div>
                 </StyledTopThree>
