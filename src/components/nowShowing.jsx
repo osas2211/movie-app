@@ -2,12 +2,13 @@ import { Card } from "./card2";
 import PuffLoader from "react-spinners/PuffLoader";
 import {css} from "@emotion/react";
 import OwlCarousel from 'react-owl-carousel';
-import batman from "../images/batman.jpg"
-import spiderman from "../images/spiderman.jpg";
-import shiangchi from "../images/shiangchi.jpg";
-import enchanto from "../images/enchanto.jpeg";
+import { useFetchMulti } from "../custom hooks/customHooks";
+import { ApiKey, imgHTTP } from "../apiKey";
+import { useEffect, useState } from "react";
 
 export const NowShowing = ()=>{
+    const movies = useFetchMulti(`https://api.themoviedb.org/3/movie/now_playing?api_key=${ApiKey}&language=en-US&page=1`);
+    
     const override = css`
     display: inline-block;
     transform: translateY(10%);
@@ -22,7 +23,8 @@ export const NowShowing = ()=>{
 
             <div className="container-fluid mt-2 pb-5">
                 
-                <OwlCarousel className='owl-theme'
+                {
+                    movies.length && <OwlCarousel className='owl-theme'
                     navText = {[
                         "<span href='#' className=''>Prev</span>",
                         "<span href='#' className=''>Next</span>"
@@ -49,15 +51,16 @@ export const NowShowing = ()=>{
                     margin={30}
                     stagePadding={20} nav>
 
-                        <Card img={spiderman} animeClass="translate-right" title={"SpiderMan-No Way Home"} year={"2021"} rating={7.4} time={"128 min"} />
-                        <Card img={batman} animeClass="translate-right" title={"Batman"} year={"2022"} rating={7.4} time={"128 min"} />
-                        <Card img={shiangchi} animeClass="translate-right" title={"Shiang Chi-Legend of the Ten Rings"} year={"2021"} rating={7.4} time={"128 min"} />
-                        <Card img={enchanto} animeClass="translate-right" title={"Enchanto"} year={"2021"} rating={7.4} time={"128 min"} />
-                        <Card img={enchanto} animeClass="translate-right" title={"Enchanto"} year={"2021"} rating={7.4} time={"128 min"} />
-                        <Card img={shiangchi} animeClass="translate-right" title={"Shiang Chi-Legend of the Ten Rings"} year={"2021"} rating={7.4} time={"128 min"} />
-                        <Card img={batman} animeClass="translate-right" title={"Batman"} year={"2022"} rating={7.4} time={"128 min"} />
-                        <Card img={spiderman} animeClass="translate-right" title={"SpiderMan-No Way Home"} year={"2021"} rating={7.4} time={"128 min"} />
+                        { 
+                          movies.length !==0 && movies.map((data)=>{
+                                return(
+                                    <Card key={data.id} img={imgHTTP+data.poster_path} animeClass="translate-right" title={data.title} year={data.release_date} rating={data.vote_average} time={data.runtime} data={data} />
+                                )
+                            })
+                        }
+                        
                 </OwlCarousel>
+                }
                 </div>
             </div>
     )

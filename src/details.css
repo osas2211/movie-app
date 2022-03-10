@@ -7,14 +7,14 @@
     
 }
 
-.movie-details .home a{
+.movie-details .home a, .search-page .home a{
     color: #fff;
     text-decoration: none;
     font-size: 3rem;
     transition: .5s ease-in-out;
 }
 
-.movie-details .home a:hover{
+.movie-details .home a:hover, .search-page .home a:hover{
     color: var(--yellow);
     transform: translateX(2rem);
 }

@@ -402,6 +402,15 @@ header .nav a:hover{
     box-sizing: border-box;
 }
 
+.search-page{
+    background-color: var(--main-color);
+    min-height: 100vh;
+}
+
+.search-form{
+    width: 50%;
+}
+
 footer{
     background-color: var(--main-color2);
     padding: 4rem 3rem;
@@ -436,5 +445,8 @@ footer .api-vendor a{
 
     footer{
         flex-direction: column;
+    }
+    .search-form{
+        width: 100%;
     }
 }

@@ -31,7 +31,7 @@ export const Header = ()=>{
                     <a href="#top-rated">Top rated</a>  
                     <a href="#nowshowing">now showing</a>   
                     <a href="#upcoming">upcoming</a>
-                    <li><a href="" className="btn-custom-1">Search Movies</a></li>
+                    <li><a href="/search" className="btn-custom-1">Search Movies</a></li>
             </nav>
             <a href="" onClick={toggle} className={`ham-nav d-md-none`}>
                 {

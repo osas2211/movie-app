@@ -1,44 +1,59 @@
 import { createPortal } from "react-dom";
 import { StyledTopThree } from "../styledComponents/styled.topThree";
-import spiderman from "../images/spiderman.jpg";
-import shiangchi from "../images/shiangchi.jpg";
+import { ApiKey } from "../apiKey";
+import { useState,useEffect, useContext } from "react";
+import axios from "axios";
+import { DetailsContext } from "../context.js/detailsContext";
+import { Link } from "react-router-dom";
+import { actions } from "../context.js/detailsContext";
+import { ViewDetails } from "./viewDetails";
 
 export const TopThree = ()=>{
+    const [state, dispatch] = useContext(DetailsContext)
+    const [key, setKey] = useState(0)
+    const [movieData, setMovieData] = useState([])
+    const movieID = [497698, 414906];
+    const imgHTTP = "https://image.tmdb.org/t/p/original/"
+
+    const getPICK = async ()=>{
+        const data = await axios(`https://api.themoviedb.org/3/movie/${movieID[0]}?api_key=${ApiKey}&language=en-US`);
+        const data2 = await axios(`https://api.themoviedb.org/3/movie/${movieID[1]}?api_key=${ApiKey}&language=en-US`);
+        const response = await data.data
+        const response2 = await data2.data
+        setMovieData([response, response2])
+    }
+
+    useEffect(()=>{
+        return getPICK();
+    }, [])
+
 
     return createPortal(
         <>  
             <StyledTopThree>
-                <div className="top-3-movie mb-4">
-                    <div className="top-3-movie-img">
-                        <img src={spiderman} alt="" srcset="" />
-                    </div>
-                    <div className="top-3-movie-title text-uppercase">
-                        <img src={spiderman} alt="" srcset="" />
-                        <p>SpiderMan-No Way Home</p>
-                        <div className="favourite-rating mb-2">
-                                <div className="d-inline-block me-2"><i className="far fa-star"></i> <span>7.4</span></div>
-                                <div className="d-inline-block mx-2"><i className="fas fa-stopwatch"></i> <span>1H 58MINS</span></div>
-                                <div className="d-inline-block mx-2"><i className="far fa-calendar-alt"></i> <span>2019</span></div>
+                {
+                    movieData.map((data, num)=>{
+                        
+                        return (
+                            <div className="top-3-movie mb-4" key={data.id}>
+                                <div className="top-3-movie-img">
+                                    <img src={`${imgHTTP}/${data.poster_path}`} alt="" srcset="" />
+                                </div>
+                                <div className="top-3-movie-title text-uppercase">
+                                    <img src={`${imgHTTP}/${data.backdrop_path}`} alt="" srcset="" />
+                                    <p>{data.title ? data.title: data.name}</p>
+                                    <div className="favourite-rating mb-2">
+                                            <div className="d-inline-block me-2"><i className="far fa-star"></i> <span>{data.vote_average}</span></div>
+                                            <div className="d-inline-block mx-2"><i className="fas fa-stopwatch"></i> <span>{data.runtime} mins</span></div>
+                                            <div className="d-inline-block mx-2"><i className="far fa-calendar-alt"></i> <span>{data.release_date}</span></div>
+                                        </div>
+                                    <ViewDetails id={data.id} data={data}></ViewDetails>   
+                                </div>
                             </div>
-                        <a href="/movie-details" className="btn-custom-3 mt-2">View Details</a>    
-                    </div>
-                </div>
+                        )
+                    })
+                }
 
-                <div className="top-3-movie mb-3">
-                    <div className="top-3-movie-img">
-                        <img src={shiangchi} alt="" srcset="" />
-                    </div>
-                    <div className="top-3-movie-title text-uppercase">
-                        <img src={shiangchi} alt="" srcset="" />
-                        <p> Shiang Chi-Legend of the Ten Rings</p>
-                        <div className="favourite-rating mb-2">
-                                <div className="d-inline-block me-2"><i className="far fa-star"></i> <span>7.4</span></div>
-                                <div className="d-inline-block mx-2"><i className="fas fa-stopwatch"></i> <span>1H 58MINS</span></div>
-                                <div className="d-inline-block mx-2"><i className="far fa-calendar-alt"></i> <span>2019</span></div>
-                            </div>
-                        <a href="/movie-details" className="btn-custom-3 mt-2">View Details</a>                       
-                    </div>
-                </div>
                 </StyledTopThree>
         </>, document.querySelector("body")
     )

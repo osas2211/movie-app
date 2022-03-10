@@ -1,18 +1,15 @@
 import { useState } from "react"
 import { Card } from "./card";
-import batman from "../images/batman.jpg"
-import spiderman from "../images/spiderman.jpg";
-import shiangchi from "../images/shiangchi.jpg";
-import enchanto from "../images/enchanto.jpeg";
-import wanda from "../images/wandavision.jpg";
-import falcon from "../images/falcon.jpg";
-import peacemaker from "../images/peacemaker.jpg";
-import whatif from "../images/whatif.jpg";
+import { ApiKey } from "../apiKey";
+import { useFetchMulti } from "../custom hooks/customHooks";
+import { imgHTTP } from "../apiKey";
 
 
 export const TopRated = ()=>{
     const [showMovies, setShowMovies] = useState(true);
     const [showTV, setShowTV] = useState(false);
+    const movies = useFetchMulti(`https://api.themoviedb.org/3/movie/top_rated?api_key=${ApiKey}&language=en-US&page=1`);
+    const tv = useFetchMulti(`https://api.themoviedb.org/3/tv/top_rated?api_key=${ApiKey}&language=en-US&page=1`);
 
     const displayMovies = (e)=>{
         e.preventDefault()
@@ -41,14 +38,14 @@ export const TopRated = ()=>{
             {showMovies ? 
                 <div className="container-fluid mt-5 pb-5">
                     <div className="row justify-content-center g-5">
-                        <Card img={batman} animeClass="translate-right" title={"Batman"} year={"2022"} rating={7.4} time={"128 min"} />
-                        <Card img={spiderman} animeClass="translate-right" title={"SpiderMan-No Way Home"} year={"2021"} rating={7.4} time={"128 min"} />
-                        <Card img={shiangchi} animeClass="translate-right" title={"Shiang Chi-Legend of the Ten Rings"} year={"2021"} rating={7.4} time={"128 min"} />
-                        <Card img={enchanto} animeClass="translate-right" title={"Enchanto"} year={"2021"} rating={7.4} time={"128 min"} />
-                        <Card img={enchanto} animeClass="translate-right" title={"Enchanto"} year={"2021"} rating={7.4} time={"128 min"} />
-                        <Card img={shiangchi} animeClass="translate-right" title={"Shiang Chi-Legend of the Ten Rings"} year={"2021"} rating={7.4} time={"128 min"} />
-                        <Card img={batman} animeClass="translate-right" title={"Batman"} year={"2022"} rating={7.4} time={"128 min"} />
-                        <Card img={spiderman} animeClass="translate-right" title={"SpiderMan-No Way Home"} year={"2021"} rating={7.4} time={"128 min"} />
+                        {
+                            movies.map((data)=>{
+                                return(
+                                    <Card key={data.id} img={imgHTTP+data.poster_path} animeClass="translate-right" title={data.title} year={data.release_date} rating={data.vote_average} time={data.runtime} data={data} />
+                                )
+                            })
+                        }
+                        
                     </div>
                 </div> 
                 
@@ -56,14 +53,13 @@ export const TopRated = ()=>{
 
                 <div className="container-fluid mt-5">
                     <div className="row justify-content-center g-5">
-                        <Card img={wanda} animeClass="translate-left" title={"WandaVision"} year={"2021"} rating={7.4} time={"128 min"} />
-                        <Card img={peacemaker} animeClass="translate-left" title={"The Peacemaker"} year={"2021"} rating={7.4} time={"128 min"} />
-                        <Card img={falcon} animeClass="translate-left" title={"The Falcon and the Winter Soldier"} year={"2022"} rating={7.4} time={"128 min"} />
-                        <Card img={whatif} animeClass="translate-left" title={"What If?"} year={"2021"} rating={7.4} time={"128 min"} />
-                        <Card img={whatif} animeClass="translate-left" title={"What If?"} year={"2021"} rating={7.4} time={"128 min"} />
-                        <Card img={wanda} animeClass="translate-left" title={"WandaVision"} year={"2021"} rating={7.4} time={"128 min"} />
-                        <Card img={peacemaker} animeClass="translate-left" title={"The Peacemaker"} year={"2021"} rating={7.4} time={"128 min"} />
-                        <Card img={falcon} animeClass="translate-left" title={"The Falcon and the Winter Soldier"} year={"2022"} rating={7.4} time={"128 min"} />
+                    {
+                            tv.map((data)=>{
+                                return(
+                                    <Card key={data.id} img={imgHTTP+data.poster_path} animeClass="translate-right" title={data.title} year={data.release_date} rating={data.vote_average} time={data.runtime} data={data} />
+                                )
+                            })
+                        }
                     </div>
                 </div>
             }

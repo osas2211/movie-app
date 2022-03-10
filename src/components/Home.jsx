@@ -13,7 +13,7 @@ export const Home = ()=>{
     const [loader, setLoader] = useState(false);
     useEffect(()=>{
         setLoader(true);
-        setTimeout(()=>{setLoader(false)}, 2000)
+        setTimeout(()=>{setLoader(false)}, 1000)
     }, [])
     return (
         <>
