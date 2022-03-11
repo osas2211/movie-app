@@ -8,8 +8,8 @@ import { imgHTTP } from "../apiKey";
 export const TopRated = ()=>{
     const [showMovies, setShowMovies] = useState(true);
     const [showTV, setShowTV] = useState(false);
-    const movies = useFetchMulti(`https://api.themoviedb.org/3/movie/top_rated?api_key=${ApiKey}&language=en-US&page=1`);
-    const tv = useFetchMulti(`https://api.themoviedb.org/3/tv/top_rated?api_key=${ApiKey}&language=en-US&page=1`);
+    const movies = useFetchMulti(`https://api.themoviedb.org/3/trending/movie/day?api_key=${ApiKey}`);
+    const tv = useFetchMulti(`https://api.themoviedb.org/3/trending/tv/day?api_key=${ApiKey}`);
 
     const displayMovies = (e)=>{
         e.preventDefault()
@@ -28,7 +28,7 @@ export const TopRated = ()=>{
     }
     return (
         <div className="top-rated py-5 px-3" id="top-rated">
-            <h3 className="display-6 text-capitalise text-center fw-bold mt-5">Top Rated Movies</h3>
+            <h3 className="display-6 text-capitalise text-center fw-bold mt-5">Trending Movies/TV</h3>
             <div className="top-rated-nav text-center my-5">
                 <a href="" className={showMovies ? "btn-custom-4 ms-3 active-4" : "btn-custom-4 ms-3"} onClick={displayMovies}><span>Movies</span></a>
 

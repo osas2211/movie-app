@@ -12,7 +12,7 @@ export const Upcoming = ()=>{
     margin: 0 auto;
     `;
 
-    const movies = useFetchMulti(`https://api.themoviedb.org/3/movie/upcoming?api_key=${ApiKey}&language=en-US&page=2`);
+    const movies = useFetchMulti(`https://api.themoviedb.org/3/movie/upcoming?api_key=${ApiKey}&language=en-US&page=1`, 20);
 
     return (
         <div className="upcoming pb-5 px-3 pt-5" id="upcoming">

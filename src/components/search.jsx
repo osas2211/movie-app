@@ -1,45 +1,49 @@
-import batman from "../images/batman.jpg"
-import spiderman from "../images/spiderman.jpg";
-import shiangchi from "../images/shiangchi.jpg";
-import enchanto from "../images/enchanto.jpeg";
 import { Card } from "./card";
 import { useState } from "react"
+import { useFetchMulti } from "../custom hooks/customHooks";
+import { imgHTTP, ApiKey } from "../apiKey";
+import { Link } from "react-router-dom";
 
 export const Search = ()=>{
     const [result, setResult] = useState(false);
-    const [val, setVal] = useState("")
+    const [searchInput, setSearchInput] = useState("")
+    const movies = useFetchMulti(`https://api.themoviedb.org/3/search/movie?api_key=${ApiKey}&language=en-US&query=${searchInput}&page=1&include_adult=false`, 16, [searchInput])
     const handleInputVal = (e)=>{
         e.preventDefault();
-        setVal(e.target.value)
+        setSearchInput(e.target.value)
+    }
+
+
+    const handleSubmit = (e)=>{
+        e.preventDefault()
+        setResult(movies)
+        setSearchInput("")
     }
 
     return (
         <div className="search-page container-fluid">
             <div className="home mx-2 my-0">
-                    <a href="/">&#8592;</a>
+                    <Link to="/">&#8592;</Link>
                 </div>
-            <form className="search-form pt-3 m-auto">
+            <form className="search-form pt-3 m-auto" onSubmit={handleSubmit}>
                 <div className="input-group">
                     <span className="input-group-text">🔎</span>
-                    <input type="text" onChange={handleInputVal} value={val} placeholder="Search For Movies" className="form-control" />
+                    <input type="text" onChange={handleInputVal} value={searchInput} placeholder="Search For Movies" className="form-control" />
                     <button className="btn btn-primary">Search</button>
                 </div>
             </form>
 
             <div className="search-result mt-5">
                 {
-                    !result ? <p className="no-result pt-5 text-light display-6 text-muted text-center">Input a Valid Search: {val}</p>
+                    !result ? <p className="no-result pt-5 text-light display-6 text-muted text-center">Input a Valid Search</p>
                      :
                      <div className="container-fluid mt-5 pb-5">
                      <div className="row justify-content-center g-5 text-light">
-                         <Card img={batman} animeClass="translate-right" title={"Batman"} year={"2022"} rating={7.4} time={"128 min"} />
-                         <Card img={spiderman} animeClass="translate-right" title={"SpiderMan-No Way Home"} year={"2021"} rating={7.4} time={"128 min"} />
-                         <Card img={shiangchi} animeClass="translate-right" title={"Shiang Chi-Legend of the Ten Rings"} year={"2021"} rating={7.4} time={"128 min"} />
-                         <Card img={enchanto} animeClass="translate-right" title={"Enchanto"} year={"2021"} rating={7.4} time={"128 min"} />
-                         <Card img={enchanto} animeClass="translate-right" title={"Enchanto"} year={"2021"} rating={7.4} time={"128 min"} />
-                         <Card img={shiangchi} animeClass="translate-right" title={"Shiang Chi-Legend of the Ten Rings"} year={"2021"} rating={7.4} time={"128 min"} />
-                         <Card img={batman} animeClass="translate-right" title={"Batman"} year={"2022"} rating={7.4} time={"128 min"} />
-                         <Card img={spiderman} animeClass="translate-right" title={"SpiderMan-No Way Home"} year={"2021"} rating={7.4} time={"128 min"} />
+                         {
+                             result.map((data)=>{
+                                return  <Card key={data.id} img={imgHTTP+data.poster_path} animeClass="translate-right" title={data.title} year={data.release_date} rating={data.vote_average} time={data.runtime} data={data} />
+                             })
+                         }
                      </div>
                  </div> 
                 }

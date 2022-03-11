@@ -12,12 +12,12 @@ export const TopThree = ()=>{
     const [state, dispatch] = useContext(DetailsContext)
     const [key, setKey] = useState(0)
     const [movieData, setMovieData] = useState([])
-    const movieID = [497698, 414906];
+    const movieID = [634649, 94605];
     const imgHTTP = "https://image.tmdb.org/t/p/original/"
 
     const getPICK = async ()=>{
         const data = await axios(`https://api.themoviedb.org/3/movie/${movieID[0]}?api_key=${ApiKey}&language=en-US`);
-        const data2 = await axios(`https://api.themoviedb.org/3/movie/${movieID[1]}?api_key=${ApiKey}&language=en-US`);
+        const data2 = await axios(`https://api.themoviedb.org/3/tv/${movieID[1]}?api_key=${ApiKey}&language=en-US`);
         const response = await data.data
         const response2 = await data2.data
         setMovieData([response, response2])

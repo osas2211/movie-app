@@ -1,4 +1,5 @@
 import { StyledHomeHero } from "../styledComponents/styled.homeHero";
+import PuffLoader from "react-spinners/PuffLoader";
 import { Header } from "./header";
 import { TopThree } from "./topThree";
 import { ApiKey } from "../apiKey";
@@ -10,7 +11,7 @@ import { useFetch } from "../custom hooks/customHooks";
 
 export const HomeHero = ()=>{
     const [state, dispatch] = useContext(DetailsContext)
-    const movieID = 634649;
+    const movieID = 637649;
     const imgHTTP = "https://image.tmdb.org/t/p/original/"
     const movieData = useFetch(`https://api.themoviedb.org/3/movie/${movieID}?api_key=${ApiKey}&language=en-US`);
 
@@ -29,10 +30,10 @@ export const HomeHero = ()=>{
                     <div className="favourite-details">
                         <div className="favourite-info">
                             <small className="text-uppercase">Developer's Choice</small>
-                            <h2 className="favourite-title mt-4 mb-1">{movieData.title}</h2>
+                            <h2 className="favourite-title mt-4 mb-1 current"><span>{movieData.title}</span><PuffLoader size={25} color="#ff0022"/> </h2>
                             <p className="tagline text-uppercase mt-0 pt-0">{movieData.tagline}</p>
                             <div className="favourite-rating mb-4">
-                                <div className="d-inline-block me-2"><i className="far fa-star"></i> <span>IMBD: {movieData.vote_average}</span></div>
+                                <div className="d-inline-block me-2"><i className="far fa-star"></i> <span>TMDB: {movieData.vote_average}</span></div>
                                 <div className="d-inline-block mx-2"><i className="fas fa-stopwatch"></i> <span>DURATION: {movieData.runtime} mins</span></div>
                                 <div className="d-inline-block mx-2"><i className="far fa-calendar-alt"></i> <span>YEAR: {movieData.release_date}</span></div>
                             </div>

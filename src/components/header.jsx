@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import ham from "../images/icon-hamburger.svg";
 import close from "../images/icon-close.svg"
 import { MobileNav } from "./mobileNav";
+import { Link } from "react-router-dom"
 
 
 export const Header = ()=>{
@@ -25,13 +26,13 @@ export const Header = ()=>{
       <>
         <header className={`header d-flex py-3 px-4 px-md-5 justify-content-between py-2 align-items-center ${scrolled ? "header-change": ""}`}>
             <div className="logo">
-                <h5><a href="/">Movie<span>Geeks</span></a></h5>
+                <h5><Link to="/">Movie<span>Geeks</span></Link></h5>
             </div>
             <nav className="nav">
-                    <a href="#top-rated">Top rated</a>  
+                    <a href="#top-rated">Trending</a>  
                     <a href="#nowshowing">now showing</a>   
                     <a href="#upcoming">upcoming</a>
-                    <li><a href="/search" className="btn-custom-1">Search Movies</a></li>
+                    <li><Link to="/search" className="btn-custom-1">Search Movies</Link></li>
             </nav>
             <a href="" onClick={toggle} className={`ham-nav d-md-none`}>
                 {

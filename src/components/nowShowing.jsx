@@ -7,18 +7,17 @@ import { ApiKey, imgHTTP } from "../apiKey";
 import { useEffect, useState } from "react";
 
 export const NowShowing = ()=>{
-    const movies = useFetchMulti(`https://api.themoviedb.org/3/movie/now_playing?api_key=${ApiKey}&language=en-US&page=1`);
+    const movies = useFetchMulti(`https://api.themoviedb.org/3/movie/now_playing?api_key=${ApiKey}&language=en-US&page=1`, 20);
     
     const override = css`
     display: inline-block;
-    transform: translateY(10%);
-    margin: 0 0.5rem;
+    
     `;
 
     return (
         <div className="now-showing pb-5 px-3 pt-5" id="nowshowing">
             <div className="py-3 px-3">
-                <h3 className="h2 text-capitalise mt-5">Now Showing<PuffLoader css={override} size={25} color="#ff0022"/> </h3>
+                <h3 className="h2 text-capitalise mt-5 current"><span>Now Showing</span><PuffLoader css={override} size={25} color="#ff0022"/> </h3>
             </div>
 
             <div className="container-fluid mt-2 pb-5">

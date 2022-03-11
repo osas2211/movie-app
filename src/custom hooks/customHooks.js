@@ -19,7 +19,7 @@ export const useFetch = (http)=>{
     return movieData
 }
 
-export const useFetchMulti = (http)=>{
+export const useFetchMulti = (http, limit=8, render=[])=>{
     // const [state, dispatch] = useContext(DetailsContext)
     const [movieData, setMovieData] = useState([])
     const getPICK = async ()=>{
@@ -31,7 +31,7 @@ export const useFetchMulti = (http)=>{
 
     useEffect(()=>{
          getPICK();
-    }, [])
+    }, render)
 
-    return movieData.slice(0,8)
+    return movieData.slice(0,limit)
 }

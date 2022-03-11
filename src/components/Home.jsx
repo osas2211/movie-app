@@ -3,7 +3,6 @@ import { TopRated } from './topRated';
 import { Upcoming } from "./upcoming";
 import { NowShowing } from "./nowShowing";
 import { Footer } from "./footer";
-
 import { useEffect, useState } from "react";
 import { ScreenLoader } from "./screenLoader";
 

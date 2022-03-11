@@ -2,19 +2,20 @@ import wallpaper from "../images/wallpaper3.jpg";
 import { imgHTTP } from "../apiKey";
 import { useContext } from "react";
 import { DetailsContext } from "../context.js/detailsContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 export const MovieDetails = ()=>{
     const [movieData, dispatch] = useContext(DetailsContext);
-    console.log(movieData)
+    const navigate = useNavigate()
+    console.log(navigate(-1))
 
     return (
         <div className="details-page">
             <div className="movie-details">
                 <img src={`${imgHTTP}/${movieData.backdrop_path}`} alt="" className="wallpaper" /> 
                 <div className="home mx-5 my-0">
-                    <Link to="/">&#8592;</Link>
+                    <a href="#" onClick={()=> navigate(-1)}>&#8592;</a>
                 </div>
                 <div className="container-fluid">
                     <div className="details m-3 m-md-5 px-3 row">

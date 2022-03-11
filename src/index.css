@@ -354,6 +354,15 @@ header .nav a:hover{
     font-size: 0.8rem;
 }
 
+.current{
+    display: flex;
+    align-items: center;
+}
+
+.current span{
+    margin-right: 0.5rem;
+}
+
 .translate-left{
     animation-name: translateLeft;
     animation-duration: .4s;
