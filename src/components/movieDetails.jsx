@@ -1,4 +1,3 @@
-import wallpaper from "../images/wallpaper3.jpg";
 import { imgHTTP } from "../apiKey";
 import { useContext } from "react";
 import { DetailsContext } from "../context.js/detailsContext";
